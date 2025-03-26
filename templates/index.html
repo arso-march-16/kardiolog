@@ -1,0 +1,839 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kardiolog Ai</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+        #gfg-title {
+            margin-left: 23%;
+            margin-top: 10%;
+            overflow: hidden; 
+            white-space: nowrap; 
+            animation: typing 5s steps(50, end); 
+        }
+
+        @keyframes typing {
+            from { width: 0; } 
+            to { width: 100%; } 
+        }
+
+        .btn-primary {
+            margin-left: 45%;
+            padding: 10px 20px;
+            color: white;
+            background-color: rgb(50, 137, 44);
+            font-size: 20px;
+            border-radius: 5px;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            color: rgb(50, 137, 44);
+            background-color: white;
+            cursor: pointer;
+        }
+
+        #kardiolog-text {
+            color: green;
+        }
+
+
+
+        body {
+            background-color: #f8f9fa;
+            padding-top: 60px;
+        }
+        .navbar {
+            background-color: #343a40;
+            border-bottom: 4px solid #007bff;
+        }
+        .navbar-brand {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: #ffffff;
+        }
+        .footer a:hover {
+            color: #f8f9fa;
+        }
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #f8f9fa;
+        }
+        .animation-element {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        .fade-in {
+            animation-name: fadeIn;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        #faq .card {
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        #faq .card-header {
+            background-color: #f8f9fa;
+            border: none;
+            border-bottom: 1px solid #dee2e6;
+            padding: 15px;
+        }
+        #faq .card-header h5 {
+            margin: 0;
+        }
+        #faq .card-header button {
+            color: #343a40;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        #faq .card-body {
+            background-color: #ffffff;
+            padding: 20px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+            #myCarousel {
+                margin-top: 50px; 
+                max-width: 1300px; 
+                margin-left: auto; 
+                margin-right: auto; 
+            }
+
+            .carousel-item img {
+                height: 400px; 
+                object-fit: cover; 
+                border-radius: 8px; 
+            }
+
+            .carousel-control-prev, .carousel-control-next {
+                width: 1%; 
+                background-color: rgba(0, 0, 0, 0); 
+                border-radius: 10%; 
+            }
+
+            .carousel-control-prev-icon, .carousel-control-next-icon {
+                color: white; 
+            }
+
+            .carousel-control-prev-icon:hover, .carousel-control-next-icon:hover {
+                color: #ccc;
+            }
+
+            .carousel-control-prev {
+                left: -25px; 
+            }
+
+            .carousel-control-next {
+                right: -25px; 
+            }
+
+            .carousel-caption {
+                background-color: rgba(0, 0, 0, 0.5); 
+                border-radius: 10px; 
+                padding: 10px; 
+            }
+
+            .carousel-caption h5, .carousel-caption p {
+                color: white; 
+            }
+
+            .welcome-text {
+                margin-left: 60px;
+                margin-right: 60px;
+                padding: 20px;
+                margin-top: 70px;
+                background-color: #f0f4f8;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                animation: fadeInUp 1.5s ease-out;
+            }
+
+            .welcome-text p {
+                font-size: 20px; 
+                line-height: 1.6;
+                color: #333;
+            }
+
+            .fa-handshake {
+                font-size: 2.5rem; 
+                color: #007bff; 
+                margin-right: 10px;
+            }
+
+            @keyframes fadeInUp {
+                0% {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .partneri-section {
+                padding: 40px 0;
+                text-align: center;
+            }
+
+            .partneri {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .partner {
+                margin: 0 20px;
+            }
+
+            .partner img {
+                width: 200px;
+                height: auto;
+            }
+            .testimonial {
+                display: flex;
+                flex-direction: column;
+                justify-content: center; 
+                align-items: center; 
+                text-align: center; 
+                margin-bottom: 40px; 
+            }
+
+            .testimonial img {
+                width: 150px; 
+                height: 150px; 
+                object-fit: cover; 
+                border-radius: 50%; 
+                margin-bottom: 20px; 
+            }
+
+            .testimonial-text {
+                font-size: 16px; 
+                margin-bottom: 20px; 
+            }
+
+            .author {
+                font-style: italic; 
+                font-weight: bold; 
+            }
+
+            .additional-info {
+                background-color: #f4f4f4;
+                padding: 30px;
+                border-radius: 10px;
+            }
+
+            .additional-info h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+            .info-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-gap: 20px;
+            }
+
+            .info-item {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .info-item h3 {
+                font-size: 18px;
+                margin-bottom: 10px;
+                color: #333;
+            }
+
+            .info-item p {
+                font-size: 16px;
+                margin-bottom: 8px;
+                color: #666;
+            }
+            .scroll-to-top {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background-color: #333;
+                color: #fff;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                transition: background-color 0.3s ease;
+            }
+
+            .scroll-to-top:hover {
+                background-color: #555;
+            }
+
+            .scroll-to-top i {
+                font-size: 20px;
+            }
+            .section-about-heart-diseases, .section-symptoms-heart-diseases, .section-treatment-heart-diseases, .section-prevention-heart-diseases {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #f0f4f8;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px auto;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+            max-width: 1200px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+            .section-about-heart-diseases:hover, .section-symptoms-heart-diseases:hover, .section-treatment-heart-diseases:hover, .section-prevention-heart-diseases:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            }
+
+            .section-about-heart-diseases .section-title, .section-symptoms-heart-diseases .section-title, .section-treatment-heart-diseases .section-title, .section-prevention-heart-diseases .section-title {
+                color: #333;
+                font-weight: bold;
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+
+            .section-about-heart-diseases .section-description, .section-symptoms-heart-diseases .section-description, .section-treatment-heart-diseases .section-description, .section-prevention-heart-diseases .section-description {
+                color: #555;
+                margin-bottom: 20px;
+                font-size: 16px;
+            }
+
+            .section-about-heart-diseases .section-list, .section-symptoms-heart-diseases .section-list, .section-treatment-heart-diseases .section-list, .section-prevention-heart-diseases .section-list {
+                color: #666;
+                margin-left: 20px;
+                font-size: 16px;
+            }
+
+            .section-about-heart-diseases .section-list li, .section-symptoms-heart-diseases .section-list li, .section-treatment-heart-diseases .section-list li, .section-prevention-heart-diseases .section-list li {
+                margin-bottom: 8px;
+            }
+
+            .section-about-heart-diseases .section-list li strong, .section-symptoms-heart-diseases .section-list li strong, .section-treatment-heart-diseases .section-list li strong, .section-prevention-heart-diseases .section-list li strong {
+                color: #007bff;
+            }
+
+            .section-about-heart-diseases .image-gallery, .section-symptoms-heart-diseases .image-gallery, .section-treatment-heart-diseases .image-gallery, .section-prevention-heart-diseases .image-gallery {
+                margin-top: 20px;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+
+            .section-about-heart-diseases .image-gallery img, .section-symptoms-heart-diseases .image-gallery img, .section-treatment-heart-diseases .image-gallery img, .section-prevention-heart-diseases .image-gallery img {
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease;
+            }
+
+            .section-about-heart-diseases .image-gallery img:hover, .section-symptoms-heart-diseases .image-gallery img:hover, .section-treatment-heart-diseases .image-gallery img:hover, .section-prevention-heart-diseases .image-gallery img:hover {
+                transform: scale(1.05);
+            }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="http://127.0.0.1:8000/">
+            <i class="fa-solid fa-heart-pulse"></i> Kardiolog AI            
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'o_nama' %}"><span class="animation-element fade-in" style="font-size: 20px;">O nama</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'preventiva' %}"><span class="animation-element fade-in" style="font-size: 20px;">Preventiva</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog' %}"><span class="animation-element fade-in" style="font-size: 20px;">Blog</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'kontakt' %}"><span class="animation-element fade-in" style="font-size: 20px;">Kontakt</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="welcome-text">
+        <p>
+            <i class="fas fa-handshake fa-3x" style="margin-right: 10px;"></i> Dobrodošli na našu stranicu za procjenu srčanog zdravlja. Unesite svoje zdravstvene podatke u našu naprednu formu i dozvolite našem algoritmu da vam pruži preciznu procjenu rizika od srčanih problema.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <h1 id="gfg-title">Kardiolog AI: provjerite vaše srčano zdravlje.</h1>
+    <br>
+    <form action="predict">
+        <button class="btn-primary" type="submit">Unesi svoje podatke</button>
+    </form>
+</div>
+
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://plus.unsplash.com/premium_photo-1682310215405-3f493a5fecde?q=80&w=1824&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Slika 1">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=2047&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Slika 2">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Slika 3">
+        </div>
+        <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1625134673337-519d4d10b313?q=80&w=1838&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="d-block w-100" alt="Slika 4">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Prethodna</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Sljedeća</span>
+    </a>
+</div>
+<br>
+<section class="section-about-heart-diseases">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8 content">
+                <h2 class="section-title">Zašto ljudi obolijevaju od srčanih oboljenja?</h2>
+                <p class="section-description">
+                    Srčana oboljenja su jedan od vodećih uzroka smrti širom svijeta, a razlozi za njihov nastanak su mnogostruki i složeni. Evo nekoliko glavnih faktora koji doprinose obolijevanju od srčanih oboljenja:
+                </p>
+                <ol class="section-list">
+                    <li><strong>Genetski faktori:</strong> Naslijeđe igra značajnu ulogu u riziku od srčanih oboljenja. Ako u porodici postoji istorija srčanih oboljenja, veća je vjerovatnoća da će i potomci biti pogođeni.</li>
+                    <li>
+                        <strong>Nezdrav način života:</strong>
+                        <ul>
+                            <li><strong>Nezdrava ishrana:</strong> Ishrana bogata zasićenim mastima, trans-mastima, šećerom i soli može doprinijeti razvoju srčanih oboljenja.</li>
+                            <li><strong>Fizička neaktivnost:</strong> Nedostatak fizičke aktivnosti može dovesti do gojaznosti, visokog krvnog pritiska i visokog nivoa lošeg holesterola.</li>
+                            <li><strong>Pušenje:</strong> Pušenje značajno povećava rizik od srčanih oboljenja. Nikotin i druge hemikalije u cigaretama oštećuju krvne sudove.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Hronični stres:</strong> Dugotrajan stres može negativno uticati na srce povećavajući krvni pritisak i podstičući nezdrave navike kao što su prejedanje i pušenje.</li>
+                    <li>
+                        <strong>Medicinska stanja:</strong>
+                        <ul>
+                            <li><strong>Hipertenzija (visok krvni pritisak):</strong> Hronično visok krvni pritisak može oštetiti arterije i srce.</li>
+                            <li><strong>Dijabetes:</strong> Osobe sa dijabetesom imaju veći rizik od razvoja srčanih oboljenja zbog visokog nivoa glukoze u krvi.</li>
+                            <li><strong>Visok holesterol:</strong> Visok nivo lošeg holesterola (LDL) i nizak nivo dobrog holesterola (HDL) mogu dovesti do ateroskleroze, stanja u kojem se arterije sužavaju i otvrdnjavaju.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Gojaznost:</strong> Prekomjerna tjelesna težina je povezana sa visokim krvnim pritiskom, dijabetesom i visokim nivoom holesterola, što su sve faktori rizika za srčana oboljenja.</li>
+                    <li><strong>Starost i pol:</strong> Rizik od srčanih oboljenja raste s godinama. Takođe, muškarci su u većem riziku u ranijem životnom dobu, dok se rizik za žene povećava nakon menopauze.</li>
+                    <li><strong>Alkohol:</strong> Prekomjerno konzumiranje alkohola može povećati krvni pritisak i nivo triglicerida, što doprinosi srčanim oboljenjima.</li>
+                </ol>
+            </div>
+            <div class="col-lg-4">
+                <div class="image-gallery">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsO8TWxzM-ahmOvStxUA1gin9yppd4FdCvrQ&s" alt="Slika srca" class="img-fluid mb-3" style="border-radius: 8px;">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2OD3vpmYljpL4TMTruRWlDMfJ9HbpKVEa9w&s" alt="Slika bolnice" class="img-fluid mb-3" style="border-radius: 8px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-symptoms-heart-diseases">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-4 order-lg-1">
+                <div class="image-gallery">
+                    <br><br><br>
+                    <img src="https://www.health.com/thmb/Ut3zO3cz3HI_hHW7K7bDd4Qbfqs=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/heart-disease-symptoms-GettyImages-1437955756-933d168cfda14567ac1892aeb17a4fd9.jpg" alt="Slika" class="img-fluid mb-3"style="border-radius: 8px;">
+                    <br><br>
+                    <img src="https://patientser.com/wp-content/uploads/2024/02/What-to-Do-if-You-or-Someone-Youre-With-Shows-Signs-of-a-Heart-Attack.jpg" alt="Simptom: Kratkoća daha" class="img-fluid mb-3"style="border-radius: 8px;">
+                </div>
+            </div>
+            <div class="col-lg-8 order-lg-2">
+                <h2 class="section-title">Simptomi</h2>
+                <p class="section-description">
+                    Simptomi srčanih oboljenja mogu varirati zavisno od vrste oboljenja. Međutim, neki od najčešćih simptoma koji ukazuju na probleme sa srcem uključuju:
+                </p>
+                <ol class="section-list">
+                    <li><strong>Bol u grudima (angina):</strong> Osjećaj pritiska, stiskanja, punoće ili bola u grudima. Ovaj bol može se proširiti na ramena, ruke, leđa, vrat ili vilicu.</li>
+                    <li><strong>Kratkoća daha:</strong> Osjećaj da ne možete udahnuti dovoljno vazduha, često se javlja pri fizičkom naporu.</li>
+                    <li><strong>Umor i slabost:</strong> Neobjašnjiv osjećaj umora i slabosti, čak i uz minimalni fizički napor.</li>
+                    <li><strong>Nepravilan srčani ritam (aritmija):</strong> Srce može kucati prebrzo, presporo ili nepravilno.</li>
+                    <li><strong>Vrtoglavica ili nesvjestica:</strong> Mogu ukazivati na smanjeni protok krvi do mozga.</li>
+                    <li><strong>Otok (edem):</strong> Zadržavanje tečnosti u tijelu, naročito u nogama.</li>
+                    <li><strong>Mučnina ili povraćanje:</strong> Naročito kod žena, mogu biti simptomi srčanog udara.</li>
+                    <li><strong>Bol u gornjem dijelu tela:</strong> Bol ili nelagodnost u jednoj ili obe ruke, leđima, vratu, vilici ili stomaku.</li>
+                    <li><strong>Hladan znoj:</strong> Nagli napad hladnog znojenja bez očiglednog razloga.</li>
+                    <li><strong>Ubrzan ili nepravilan puls:</strong> Može biti simptom aritmije.</li>
+                </ol>
+                <p class="section-note">Simptomi srčanog udara posebno uključuju intenzivan bol u grudima, kratkoću daha, hladan znoj, mučninu, povraćanje i osjećaj predstojeće propasti. Ovi simptomi zahtijevaju hitnu medicinsku pomoć.</p>
+                <p class="section-note">Ako primijetite bilo koji od ovih simptoma, posebno ako se pogoršavaju ili su prisutni u kombinaciji, važno je potražiti medicinsku pomoć kako bi se spriječile ozbiljnije komplikacije.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-treatment-heart-diseases">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8 order-lg-1">
+                <h2 class="section-title">Kako liječiti?</h2>
+                <p class="section-description">
+                    Liječenje srčanih oboljenja zavisi od vrste oboljenja, ozbiljnosti stanja i individualnih faktora pacijenta. Evo nekoliko opštih pristupa liječenju srčanih oboljenja:
+                </p>
+                <ol class="section-list">
+                    <li><strong>Promjene u načinu života:</strong>
+                        <ul>
+                            <li><strong>Zdrava ishrana:</strong> Smanjenje unosa zasićenih masti, holesterola, soli i šećera, kao i povećanje unosa voća, povrća, integralnih žitarica i zdravih masti (poput omega-3 masnih kiselina).</li>
+                            <li><strong>Redovna fizička aktivnost:</strong> Preporučuje se najmanje 150 minuta umjerene ili 75 minuta intenzivne fizičke aktivnosti nedjeljno.</li>
+                            <li><strong>Prestanak pušenja:</strong> Pušenje značajno povećava rizik od srčanih oboljenja, pa je prestanak pušenja ključan korak u prevenciji i liječenju.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Lekovi:</strong>
+                        <ul>
+                            <li><strong>Beta-blokatori:</strong> Koriste se za regulisanje srčanog ritma, snižavanje krvnog pritiska i smanjenje opterećenja srca.</li>
+                            <li><strong>ACE inhibitori i ARB:</strong> Pomažu u snižavanju krvnog pritiska i smanjenju opterećenja srca.</li>
+                            <li><strong>Statini:</strong> Koriste se za snižavanje nivoa holesterola u krvi i sprječavanje ateroskleroze.</li>
+                            <li><strong>Antiagregacioni lekovi:</strong> Kao što su aspirin ili klopidogrel, koriste se za sprječavanje stvaranja krvnih ugrušaka.</li>
+                            <li><strong>Diuretici:</strong> Koriste se za smanjenje zadržavanja tečnosti u organizmu, što pomaže u smanjenju opterećenja srca.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Intervencione procedure:</strong>
+                        <ul>
+                            <li><strong>Koronarna angiografija i stentiranje:</strong> Koristi se za otvaranje suženih koronarnih arterija.</li>
+                            <li><strong>Bajpas operacija:</strong> Koristi se za obilazak suženih koronarnih arterija.</li>
+                            <li><strong>Implantacija pejsmejkera ili defibrilatora:</strong> Koristi se za regulisanje srčanog ritma.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Rehabilitacija srca:</strong> Programi rehabilitacije obuhvataju fizičku aktivnost, edukaciju o zdravom načinu života i psihološku podršku.</li>
+                    <li><strong>Kontrola komorbiditeta:</strong> Liječenje i kontrola drugih medicinskih stanja ključni su za efikasno upravljanje srčanim oboljenjima.</li>
+                </ol>
+                <p class="section-note">U zavisnosti od dijagnoze, ljekar će odabrati odgovarajuće terapije i prilagoditi ih individualnim potrebama svakog pacijenta. Redovne medicinske kontrole i pridržavanje liječenja su ključni za upravljanje srčanim oboljenjima i sprječavanje komplikacija.</p>
+            </div>
+            <div class="col-lg-4 order-lg-2">
+                <div class="image-gallery">
+                    <br><br><br>
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=2053&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Zdrava ishrana" class="img-fluid mb-3"style="border-radius: 8px;">
+                    <br><br>
+                    <img src="https://plus.unsplash.com/premium_photo-1663050844860-548dbfcc79a9?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Fizička aktivnost" class="img-fluid mb-3"style="border-radius: 8px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section-prevention-heart-diseases">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-4 order-lg-1">
+                <div class="image-gallery">
+                    <br><br><br>
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1999&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Meditacija" class="img-fluid mb-3"style="border-radius: 8px;">
+                    <br><br>
+                    <img src="https://images.unsplash.com/photo-1600262300112-f9d8a99fa4b6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cigare" class="img-fluid mb-3"style="border-radius: 8px;">
+                </div>
+            </div>
+            <div class="col-lg-8 order-lg-2">
+                <h2 class="section-title">Kako odraditi prevenciju?</h2>
+                <p class="section-description">
+                    Prevencija srčanih bolesti igra ključnu ulogu u očuvanju zdravlja srca. Evo nekoliko koraka koje možete preduzeti kako biste smanjili rizik od srčanih bolesti:
+                </p>
+                <ol class="section-list">
+                    <li><strong>Zdrava ishrana:</strong>
+                        <ul>
+                            <li>Jedite raznovrsnu ishranu bogatu voćem, povrćem, integralnim žitaricama, nemasnim proteinima (poput piletine, ribe, pasulja i soje) i zdravim mastima (poput maslinovog ulja i orašastih plodova).</li>
+                            <li>Ograničite unos zasićenih masti, trans-masti, holesterola, soli i dodatnih šećera.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Redovna fizička aktivnost:</strong>
+                        <ul>
+                            <li>Vježbajte najmanje 150 minuta umjerene aerobne aktivnosti ili 75 minuta intenzivne aerobne aktivnosti nedjeljno, uz dodatne vježbe jačanja mišića dva puta nedjeljno.</li>
+                            <li>Pokušajte uključiti različite vrste aktivnosti, poput hodanja, trčanja, vožnje bicikla ili plivanja.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Održavanje zdrave težine:</strong>
+                        <ul>
+                            <li>Održavajte zdravu težinu kombinacijom zdrave ishrane i redovne fizičke aktivnosti.</li>
+                            <li>Ako imate višak kilograma, radite na postepenom gubitku težine.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Prestanak pušenja:</strong> Pušenje povećava rizik od srčanih bolesti. Ako pušite, potražite podršku i resurse za prestanak pušenja.</li>
+                    <li><strong>Ograničenje alkohola:</strong> Ako konzumirate alkohol, činite to umjereno. Prekomjerno konzumiranje alkohola može povećati rizik od srčanih bolesti.</li>
+                    <li><strong>Redovne medicinske kontrole:</strong> Redovno pratite svoje zdravstveno stanje i idite na rutinske medicinske preglede. Kontrolišite svoj krvni pritisak, nivo holesterola i nivo šećera u krvi.</li>
+                    <li><strong>Upravljanje stresom:</strong>
+                        <ul>
+                            <li>Pronađite strategije za upravljanje stresom poput meditacije, joge, dubokog disanja ili hobija koji vas opuštaju.</li>
+                            <li>Pokušajte uspostaviti ravnotežu između posla, odmora i vremena za sebe.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Povećanje svesti o simptomima i rizicima:</strong>
+                        <ul>
+                            <li>Edukujte se o simptomima srčanih bolesti i rizicima koji su povezani sa vašim životnim stilom i porodičnom istorijom.</li>
+                            <li>Ne ignorišite simptome i odmah potražite medicinsku pomoć ako primjetite nešto neobično.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p class="section-note">Prevencija srčanih bolesti zahtijeva dosljedne napore i posvećenost, ali može značajno smanjiti rizik od srčanih problema i poboljšati opšte zdravlje srca.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="faq" class="mt-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Najčešća pitanja</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <i class="fas fa-question-circle mr-2"></i> Kako mogu da unesem svoje zdravstvene podatke?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Da bi ste unijeli svoje zdravstvene podatke, jednostavno popunite formu na stranici i kliknite na dugme "POŠALJI".
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="fas fa-question-circle mr-2"></i> Kako mogu da znam da su moji podaci sigurni?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Vaši podaci su sigurni kod nas. Koristimo najnovije tehnologije zaštite podataka kako bismo osigurali privatnost i sigurnost svih informacija koje nam poverite.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <i class="fas fa-question-circle mr-2"></i> Kako mogu dobiti procjenu svog srčanog zdravlja?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Nakon što popunite formu sa svim relevantnim informacijama, kliknite na dugme "POŠALJI". Naš algoritam će obraditi te informacije i dati vam procjenu vašeg srčanog zdravlja.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingFour">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <i class="fas fa-question-circle mr-2"></i> Koliko dugo traje proces dobijanja procjene?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Proces dobijanja procjene je brz i efikasan. Obično ćete dobiti rezultate u roku od nekoliko sekundi nakon što pošaljete podatke.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingFive">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            <i class="fas fa-question-circle mr-2"></i> Da li je ova usluga besplatna?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Da, naša usluga je potpuno besplatna za korišćenje. Ne naplaćujemo nikakve naknade za davanje procjene vašeg srčanog zdravlja.
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingSix">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            <i class="fas fa-question-circle mr-2"></i> Da li mogu da unesem podatke više puta?
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#faqAccordion">
+                    <div class="card-body">
+                        Naravno! Možete unijeti svoje podatke koliko god puta želite. Naša usluga vam omogućava da dobijete procjenu svaki put kada unesete nove podatke.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="zadovoljni-korisnici" class="section" style="margin-top: 70px;">
+    <div class="container">
+        <h2 class="section-heading text-center" style="margin-bottom: 40px;">Zadovoljni korisnici</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded-circle" alt="Korisnik 1">
+                    <p class="testimonial-text">"Koristim ovu aplikaciju već nekoliko meseci i zaista sam zadovoljan rezultatima. Brzo i precizno predviđa probleme sa srcem!"</p>
+                    <p class="author">- Marko Petrović</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <img src="https://images.unsplash.com/photo-1534180477871-5d6cc81f3920?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded-circle" alt="Korisnik 2">
+                    <p class="testimonial-text">"Aplikacija je veoma jednostavna za korišćenje, a rezultati su tačni. Definitivno bih je preporučila svima koji traže sličan odgovor."</p>
+                    <p class="author">- Jovana Nikolić</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <img src="https://images.unsplash.com/photo-1608681299041-cc19878f79f1?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded-circle" alt="Korisnik 3">
+                    <p class="testimonial-text">"Odličan alat za sve koji žele brze rezultate. Uštedeo mi je mnogo vremena i pružio jasne informacije."</p>
+                    <p class="author">- Nikola Jovanović</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<div class="partneri-section">
+    <div class="partneri">
+        <div class="partner">
+            <a href="https://www.ucg.ac.me/">
+                <img src="https://www.ucg.ac.me/tumber.php?src=skladiste/blog_10/objava_34286/UCG%20jpg.jpg&w=968" alt="UCG Logo">
+            </a>
+        </div>
+        <div class="partner">
+            <a href="https://www.ucg.ac.me/etf/">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAPERERDxMSFhIQFRcSDxcSEBATEhARFRMXFhURFRMYHCgiGBsmGxcXIT0hJSsvMi4uGB8zODMsNygtLisBCgoKDg0OGhAQGjImHR0rLS0uKy0tLS0tLS0tLS4tKy0tLSstLSstKy0tLTcrNS4rLysrLS0tLS0tLS0rLS0tLf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABgIDBAUHAQj/xABMEAABAwIDAwYGDggEBwAAAAAAAQIDBBEFEiEGMUEHEyIyUXEUFTVhdLEjMzRTVHOBkZOUobKz0hZCUlVyksLjF4K00wgkYqLBw9H/xAAZAQEBAQEBAQAAAAAAAAAAAAAAAQIDBAX/xAAlEQEAAgEDAwQDAQAAAAAAAAAAAQIRAxIhMUFhMlFxsRMiQjP/2gAMAwEAAhEDEQA/AOYAA+syAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFMjrIq9iKoFQJFt3gEeHVMcMTnOa+nimVX2vner0cmibuh9pHTMTExmAABoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACibqu7l9RWUT9V3cvqCp5yx+74fQqf78xBic8sfu+H0Kn+/MQY56fogXqOmdNJHE22aV7Y23WyZnuRqXXvUyMawx9HUS00qtV8Lsjlaqq1Vsi3S/mVCvZz3ZSekQ/itNnykeVa743/1tLn9seBGwAaQABQAAAAAAAAAAAAAAAAAAAAAAAAAAApkbdFTtRUKjxVAkm3mPx4hUxzRNe1rKaKFUfa+divVy6cOnb5DMweTAOYj8LjrVnt7Msb0yK666t13WsR3F8P8AB3tZmzXY197W619PsMIxOniNvszS0WjMJxK/A1smHsrkrFc1KRXvYrEnzpzauRyqls1t5dqHYY2WZMbbVuxBJHeFOgezmlX9XJlslsmXgRPZz3ZSekQ/itNnykeVa743+hpjb+2My22FbLs5zb+Zjr+cyrzd3pbPbo3uu65CwDpWuO6AANAAAAAAAAAAAAAAAAAAAAAAAAAAAoeO3KbLD8QhjZlkpmSOuq5nPVFt2Wspffi9NZf+SjTT9tdP+01ER7uFtW8TjZ9K9r/b2fEx+txpDeTvbSuyVMTahzmMe1znuuxioqIzVF3WUp8b0vwKP+dfyltETPVx0r2pSK1rmPfhqqSodFIyRls0bmvZdLpma5HJdOy6GRjOJSVk8tRLlR8zs7sqWai2RLIir2IhjRSNR6OViOajkcrFVUa5qLfIrk1sqaXJl+l+FfuKl+n/ALRxtxOYh7EJBNv0vwv9xUn0/wDaH6X4V+4qX6f+0N0+30qEgv4hOySWR8cbYmPcrmRtcrmxtX9VHLvQsGoQABQAAAAAAAAAAAAAAAAAAAAAAAAPHblPQBu9rvb2fEx+txpC5UVL5VRz3K5URGoq20am5Cyr07U+ctpzOXPRpNKRWezNwmmbNUQROvllljjdbfle9Grbz2Uzdr8NjpK6pp4s3NwyZWZlu7LlRdV47zF2clb4ZS9JNJ4V3p7602fKPK1cVrrKntvan7DTn/ePDqjwKUenanzoVG0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAolXou7l9RWUTdV3cvqCpxyt07I66FsbWtb4FAtmNRqXzSpeycbIifIhZwflCqaSCOBkFG5sSZWq+nu9Uuq3cqO1XXeZXLH7vh9Cp/vzEGOVKxakZE5k26qcQy0ckNIxlU5kL3x0/TY2R6NVzLusjkvdFL1TtPPgss2HQR00sdNI5GyTU6LK/NZ6q9WqiKvStu3IhEdnPdlJ6RD+K02fKR5Vrvjf6Gk2Ru29hsa3lLq5o5I3QUSJI1WOVKfVEclltd28hQB0isV6IAA0AAAAAAAAAAAAAAAAAAAAAAAAAAAFE3Vd3L6is8cl0svHQKnXLF7vh9Cp/vzEGNhjuNT10jZahUV7I2wtVrcqZGZst07ekuprzFIxWIR61VRbpoqapbei9qHsj1cqucqqq6qrlVVVe1VXeUg2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAVQUTdV3cvqAz/FFX8Gqvqs/5T3xRV/Bqr6rUfkPojbbad2FUUdQyNJVc+OLK56sTpMcua6Iv7Jz93LbOqKngUeunup/+2eeure3MQrmFPRyy35qKV+Xrc3FI/L35UW3yl/xRV/Bqr6rUfkN/sVtxJhTqh7IGy+EK1VR0rmZMquXSzVv1vsOo8nvKLJi1TJTvp2RIyFZUc2Zz1VUkY3LZWJbr7/Mave9eccDh/ier+DVX1Wo/IY01PJG7LIx7HadF7HsdZdy5XIina9sOVSXD62albSskSHJZ7p3MV2aNr+qjFt1rb+BzDaTaJ2J1zKp8aRqvNMyter0sx+/MqJ29gpe08zHA1nier+C1X1Wo/IUvwqqaiq6nqURNVVaadEROKqqt0Q+heUbbF+ERQSMhbKs0ix2dIrMtmK690at9xzvE+WKaohlhWjjakzHRq5Kl6q3M1Uvbm9d5mupe0ZiBzMAHoQAAAAAAAAAAAAAAAAAAAAAAAALc/Vd3L6i4UT9V3cvqA+ntrcPoKikjZiT0ZCjmORVl5r2RGLlTN3K7Q5ntbs7gENHPJRTtdUNROaalYsiquZEXoX10uTnlNwKoxDD4oaViOkSWORUVzW9FGORVuv8SHKv8LcX94Z9PF/9PDpYxzbHPRUMOjcg/lGb0R/40Jz6qp3RSPjelnxPdG9L3s9jla5L8dUU6DyD+UZvRH/jQnp1v85Gm5WfK9Z3xf6eMi9H7ZH/ABs++hKOVjyvWd8X+njIvR+2R/xs++haeiPhH0ptxszS4lHEyrlfE2J6vYrHxsVzlarbLnRb6LwOW7fbC4fh9Jz9LUSSSc4xmV0sDkyuvdbMaikh/wCIJqLTUV0RfZ3b7e9OOKNjam5ETuRDjoUtMROeFlWAD1IAAAAAAAAAAAAAAAAAAAAAAAAHjkvovE9KZFsir2IBNm8qWLIiIksdk0T2Fh7/AIqYv77H9Aw1/KBs/FhtUyCFz3NdBHMqyK1XZnukRU0RNOgn2kaOVaUmM4Vdq6h0skkr9XyvdI9USyK97lc5bd6qZ+z2P1GHyumpXI172LG5XNRyZFc1ypZfO1DZ43s5FBhtBWtc9ZKtXJI1ytyNsjl6KIl+HaafAsHnrpm09M3NI/XVbNa1N73rwal0186dpqJrNfApxnFJayZ9ROqLLJbOqNRqLlajE0TzNT5jDY9WqipvaqKnei3Q6HU7PYFh/sVfVT1FQ3SRlIlmxu4tVU3L5ldfzHlPs5gWIex4fVzQTu0jZVp0Xu/ZRV3/ACOXuMxqViOk4+BGtpNr63EmsZVva5sTlezLG1lnK1Wqum/RVNCXqymWGR8TlYro3KxysdmYrmrZcrraoSrZrYpJoPDcQnbS0f6jne2z397avBeC634JxNZrSBDwT7JstfLmxHs5zpZe/Lb+k1O1uzlJTRR1NDWRzwSuyNaqok7XIl1u1E1RON0S10JGpEzjAi4AOiAAAAAAAAAAAAAAAAAAAAAAUTdV3cvqKyibqu7l9QVP+WnyjF6HB+JMQMnvLQxfDqeT9SSjiyLwdlfJe38zfnIEc9L0QOgbW+QcG/jf6nl/ZefxdgVVXR6VFXL4NE5OsxqLl0XzeyL3ohY2x6OB4I1dHOzyInFWK1VR3zOb85e2dgXEMAqqSLWejm8Ja1Os9i9LRON7yJ3ohy/jxkc5Vft1W+qqvaDxFvqnE9PSjYbO4f4VV0tPwmmjY7zRq5M9v8uYkPKpi6z176dukFDangYmjWq1qZ3Inbfo9zUNBsviCU1ZSTu6sU0bn+aNXIj1/lVTd8qeFup8SncvtdUvhELuDmuRM+vmdf5FQ5T64+FRI8uhdp5Mj2Osjsjmuyu6rsqouVydi2sdMpsYixLC8Xe6io4X00LVjdBA1rrvR2uZUuiplTd2lvea9kcvAB0AAAAAAAAAAAAAAAAAAAAAAAAE7wraiiq6WKhxhktqfSlqIdXxNtZGOTeunmVFsl00uVRYds3TrzklVU1KN1SFsKszqm5rlsmnyoQIHL8UdpVv9s9pn4nOkisSOKJvN00aWtHHfjbitkvbsROBibN4/Ph07ainVMydF7XdWViqirG7zab+C2Xv1YN7Yxt7I6FV1Gz+JOWaRaihqH6yoxnORPfxclkVNf8ALfsKIJdnsPVJWeEV8zdY2vZzcLXcFcioiLbz5u4gAMfj7ZnCszGMQdVTyzuaxiyuVytjSzG34In/AJ4rcleB7X00tMygxiJ80Edkp5Y1tNToiaJe6KqcO7RUUhANWpExgTvxRs41c619U5m/m0gXOv8A03yGdLtrh/i+voKaBaeJ0SNpEcjnyzyOVc75XJdEXRu9fl4JzYGZ0s9ZAAHVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAf/9k=" alt="ETF Podgorica Logo">
+            </a>
+        </div>
+    </div>
+</div>
+
+<section class="additional-info">
+    <h2>Dodatne Informacije</h2>
+    <div class="info-grid">
+        <div class="info-item">
+            <h3>Kontakt</h3>
+            <p>Telefon: +382 12 345 678</p>
+            <p>Email: info@kardiologAi.com</p>
+        </div>
+        <div class="info-item">
+            <h3>Radno vrijeme</h3>
+            <p>Ponedeljak - Petak: 9:00 - 17:00</p>
+            <p>Subota - Nedelja: Zatvoreno</p>
+        </div>
+        <div class="info-item">
+            <h3>Lokacija</h3>
+            <p>Adresa: Džordža Vašingtona, Podgorica</p>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer mt-5">
+    <div class="container">
+        <div class="social-icons mb-3">
+            <a href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/?lang=sr" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="mb-0">© 2024 Kardiolog AI. Sva prava zadržana.</p>
+    </div>
+</footer>
+
+<div class="scroll-to-top">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

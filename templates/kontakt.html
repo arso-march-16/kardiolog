@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kardiolog Ai</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 60px;
+        }
+        .navbar {
+            background-color: #343a40;
+            border-bottom: 4px solid #007bff;
+        }
+        .navbar-brand {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: #ffffff;
+        }
+        .footer a:hover {
+            color: #f8f9fa;
+        }
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #f8f9fa;
+        }
+        .contact-form {
+            max-width: 500px;
+            margin: auto;
+        }
+        .form-control {
+            border-radius: 20px;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #007bff;
+        }
+        .input-group-prepend .input-group-text {
+            border-radius: 20px 0 0 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border-color: #007bff;
+        }
+        .input-group-prepend .input-group-text i {
+            font-size: 18px;
+        }
+        .btn-primary {
+            border-radius: 20px;
+            background-color: #007bff;
+            border-color: #007bff;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+        }
+        .animation-element {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        .fade-in-up {
+            animation-name: fadeInUp;
+        }
+
+        .fade-in-down {
+            animation-name: fadeInDown;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="http://127.0.0.1:8000/">
+            <i class="fa-solid fa-heart-pulse"></i> Kardiolog AI            
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/"><span class="animation-element fade-in" style="font-size: 20px;">Početna</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'o_nama' %}"><span class="animation-element fade-in" style="font-size: 20px;">O nama</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'preventiva' %}"><span class="animation-element fade-in" style="font-size: 20px;">Preventiva</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog' %}"><span class="animation-element fade-in" style="font-size: 20px;">Blog</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <h1 class="mb-4">Kontaktirajte nas</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="contact-form">
+                <form>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Vaše ime" aria-label="Ime" aria-describedby="basic-addon1" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="Email adresa" aria-label="Email" aria-describedby="basic-addon2" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-comment"></i></span>
+                        </div>
+                        <textarea class="form-control" placeholder="Vaša poruka" aria-label="Poruka" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Pošalji poruku</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded" alt="Kontakt slika">
+        </div>
+    </div>
+    <div class="mt-4">
+        <p>Ako primijetite bilo kakve greške na našem sajtu ili imate bilo kakvih pitanja ili nedoumica, slobodno nas kontaktirajte. Vaš feedback je veoma važan za nas i pomoći će nam da unaprijedimo kvalitet naših usluga.</p>
+        <p>Možete nas takođe kontaktirati ako imate bilo kakve prijedloge ili ideje za poboljšanje našeg sajta. Vaše mišljenje nam znači mnogo!</p>
+        <p>Kontaktirajte nas putem emaila na <strong>info@kardiologAi.com</strong> ili putem telefona na <strong>+382 12 345 678</strong>.</p>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mb-4">Kako do nas?</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <p>Ovdje možete naći našu lokaciju na mapi. Ako imate bilo kakvih pitanja ili trebate pomoć oko pronalaženja puta, slobodno nas kontaktirajte.</p>
+        </div>
+        <div class="col-md-6">
+            
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2972.443592738236!2d19.258984515114573!3d42.44183467897139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134d02a33b87c93f%3A0xa13e1bc486aa9fe1!2sPodgorica%2C%20Montenegro!5e0!3m2!1sen!2s!4v1622073287898!5m2!1sen!2s" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer mt-5">
+    <div class="container">
+        <div class="social-icons mb-3">
+            <a href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/?lang=sr" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="text-center">
+            © 2024 Kardiolog AI. Sva prava zadržana.
+        </div>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

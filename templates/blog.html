@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kardiolog Ai</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 60px;
+        }
+        .navbar {
+            background-color: #343a40;
+            border-bottom: 4px solid #007bff;
+        }
+        .navbar-brand {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: #ffffff;
+        }
+        .footer a:hover {
+            color: #f8f9fa;
+        }
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #f8f9fa;
+        }
+        .contact-form {
+            max-width: 500px;
+            margin: auto;
+        }
+        .form-control {
+            border-radius: 20px;
+        }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #007bff;
+        }
+        .input-group-prepend .input-group-text {
+            border-radius: 20px 0 0 20px;
+            background-color: #007bff;
+            color: #ffffff;
+            border-color: #007bff;
+        }
+        .input-group-prepend .input-group-text i {
+            font-size: 18px;
+        }
+        .btn-primary {
+            border-radius: 20px;
+            background-color: #007bff;
+            border-color: #007bff;
+            width: 100%;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .error-message {
+            color: red;
+        }
+        .animation-element {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+        .fade-in-up {
+            animation-name: fadeInUp;
+        }
+
+        .fade-in-down {
+            animation-name: fadeInDown;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .blog-post .img-fluid {
+        height: 370px; 
+        object-fit: cover; 
+         }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        .scroll-to-top:hover {
+            background-color: #555;
+        }
+
+        .scroll-to-top i {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="http://127.0.0.1:8000/">
+            <i class="fa-solid fa-heart-pulse"></i> Kardiolog AI            
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/"><span class="animation-element fade-in" style="font-size: 20px;">Početna</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'o_nama' %}"><span class="animation-element fade-in" style="font-size: 20px;">O nama</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'preventiva' %}"><span class="animation-element fade-in" style="font-size: 20px;">Preventiva</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'kontakt' %}"><span class="animation-element fade-in" style="font-size: 20px;">Kontakt</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5" id="blog-posts">
+    <h1 class="mb-4">Blog</h1>
+
+    <div class="blog-post mb-4">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="https://limana.rs/wp-content/uploads/2021/01/blog-da-li-kod-kardiologa-nakon-covida.png" class="img-fluid rounded" alt="Blog post slika">
+            </div>
+            <div class="col-md-8">
+                <h2>Da li kod kardiologa nakon preležanog Covid-a?</h2>
+                <p>Veliki broj ljudi je prinuđen da nastavi sa redovnim dnevnim aktivnostima odmah nakon preležanog Covid-a. Neki od njih su primorani zbog posla, a neki odmah nakon oporavka kreću sa iscrpljujućim vežbanjem da bi se što pre vratili u formu. Ukoliko te aktivnosti uključuju veće, a nekad čak i manje fizičke napore, može doći do nepoželjih ishoda po zdravlje. Nekada čak i do fatalnog ishoda.
+                    <br><br>
+                    Iako se Covid-19 najčešće povezuje sa respiratornim simptomima, u mnogo slučajeva je nepovoljno uticao i na kardiovaskularni sistem
+                    Svetski eksperti iz oblasti medicine smatraju da ljudi koji su imali umereno tešku ili težu formu Covida-19 pre bilo kakvih fizičkih napora treba da urade kardiološki pregled i ultrazvuk srca -EHO
+                    Kod profesionalnih sportista pored kardiološkog pregleda, analize srčanih biomarkera, ehokardiogarfskog pregleda, potrebno je uraditi i 24h Holter monitoring EKG-a i test opterećnjem, a ako postoji sumnja na miokarditis potrebna je i magnetna rezonanca srca
+                    Za pacijente koji su imali blaže slučajeve nije obavezan pregled. <br>
+                    Postavljaju se mnoga pitanja uključujući i kako proveriti da li smo fizički sposobni da se vratimo u normalan život.</p>
+                <a href="https://limana.rs/da-li-kod-kardiologa-nakon-prelezanog-covid-a/" class="btn btn-warning">Pročitaj više</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-post mb-4">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="https://limana.rs/wp-content/uploads/2020/11/pitanja-kardiologija.jpg" class="img-fluid rounded" alt="Blog post slika">
+            </div>
+            <div class="col-md-8">
+                <h2>Najčešća pitanja pacijenata tokom kardiološkog pregleda</h2>
+                <p><strong>1. Da li je čokolada dobra za srce?</strong>
+                    Neki sastojci čokolade kao što su kakao i flavonidi povezuju se sa smanjenim rizikom za razvoj KVB. Studije koje su se bavile ovom temom nisu viksokog kvaliteta i nisu upotrebljavale komercijalnu čokoladu. Komercijalne čokolade bogate su masnoćom i šećeromi treba da se konzumiraju umereno.
+                    <br>
+                    <strong>2. Da li beli luk može pomoći mom srcu?</strong>
+                    <br>
+                    Pokazano je da beli luk može diskretno smanjiti nivo holesterola u krvi.
+
+                    Beli luk nije dovoljno efikasan da smanji ukupni nivo holesterola u krvi.
+
+                    Ipak odlična je zamena za so i dokazana su neka njegova antibakterijska dejstva.
+                    <br>
+                    <strong>3. Da li treba da uzimam suplemente koji sadrže ekstrakt crvenog kvasa?</strong>
+                    Ekstrakt crvenog kvasa je suplement nastao kao produt kvasa uzgajanog na pirinču i sadrži susptance koje smanjuju sintezu holesterola.
+                    Jedna od susptanci je monokolin K (lovastatin) koji inhibira HMG-CoA reduktazu, enzim koji učestvuje u proizvodnji holesterola u organizmu.
+                </p>
+                <a href="https://limana.rs/najcesca-pitanja-pacijenata-kardioloskog-pregleda/" class="btn btn-warning">Pročitaj više</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-post mb-4">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="https://limana.rs/wp-content/uploads/2020/09/blog-kvb-i-faktori-rizika.jpg" class="img-fluid rounded" alt="Blog post slika">
+            </div>
+            <div class="col-md-8">
+                <h2>Kardiovaskularne bolesti i faktori rizika</h2>
+                <p>Kardiovaskularne bolesti (KVB) bolesti srca i krvnih sudova su vodeći uzrok smrti u svetu, a faktori rizika mogu biti razni.
+
+                    Svake godine od KVB umre preko 17 miliona stanovnika, 85% od ovih smrtnih ishoda je usled akutnog infarkta miokarda ili šloga.
+                    
+                     
+                    
+                    - Kardiovaskularne bolesti čine:
+                    <br>
+                    - Koronarna bolest – bolest arterija koje ishranjuju srčani mišić
+                    <br>
+                    - Cerebrovaskularne bolesti – bolest krvnih sudova koje snabdevaju mozak krvlju
+                    <br>
+                    - Periferna arterijska bolest – bolest krvnih sudova koja snabdeva krvlju gornje i donje ekstremitete (ruke i noge)
+                    <br>
+                    - Reumatska srčana bolest – oštećenje srčanog mišića i srčanih zalistaka usled reumatske groznice uzrokovane bakterijom (Streptococcal bacteria)
+                    <br>
+                    - Urođene srčane bolesti – malformacije na srcu prisutne na rođenju
+                    <br>
+                    - Duboka venska tromboza i plućna tromboembolija – krvni ugrušci u venama donjih ekstremiteta koji se dislociraju i krvnom strujom dospeju do srca i pluća</p>
+                <a href="https://limana.rs/kardiovaskularne-bolesti-i-faktori-rizika/" class="btn btn-warning">Pročitaj više</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-post mb-4">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="https://limana.rs/wp-content/uploads/2019/05/blood-pressure-monitor-1749577_1920-1200x800.jpg" class="img-fluid rounded" alt="Blog post slika">
+            </div>
+            <div class="col-md-8">
+                <h2>Hipertenzija – Povišen krvni pritisak</h2>
+                <p>
+                    Visok krvni pritisak (hipertenzija) je veliki javni zdravstveni problem. Od 30-45% Evropljana ima povišen krvni pritisak, a slična situacija se smatra prisutnom u svim razvijenim društvima. Dokazana je povezanost povišenog krvnog pritiska sa povećanim rizikom za kardiovaskularne bolesti. Uticaj na rizik je modifikovan drugim prisutnim faktorima rizika i prisutnošću oštećenja ciljnih organa, zbog čega je važno ustanoviti ukupni rizik.
+                    Ambulatorno 24-časovno merenje krvnog pritiska po Holteru je dragoceno za postavljanje dijagnoze, stratifikaciju rizika i procenu efektivnosti tretmana.
+                    Efektivan tretman putem promena u načinu života i odgovarajuće medikamentne terapije nesumnjivo smanjuje rizik od razvoja kardiovaskularnih bolesti i smrtnosti usled njih.
+                    Efektivna kontrola krvnog pritiska je mnogo važnija od vrste leka koji je izabran. Obično je potrebna kombinacija više lekova.
+                    Stariji pacijenti su skloniji razvoju neželjenih efekata, kao što je posturalna hipotenzija.
+                    Hipertenzija (povišen krvni pritisak) je jedan od najvažnijih faktora rizika za koronarnu bolest (bolest koronarnih arterija - arterija koje ishranjuju srčani mišić). Pacijenti koji su hipertoničari imaju dvostruko veći rizik za razvoj koronarne bolesti u odnosu na one koji imaju normalne vrednosti krvnog pritiska.
+                    Ukoliko imate visok krvni pritisak (hipertenziju), važno je pokušati identifikovati ili isključiti reverzibilne (sekundarne) uzroke.
+                </p>
+                
+                <a href="https://limana.rs/hipertenzija-povisen-krvni-pritisak/" class="btn btn-warning">Pročitaj više</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-post mb-4">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="https://limana.rs/wp-content/uploads/2019/03/bol-u-grudima-1200x801.jpeg" class="img-fluid rounded" alt="Blog post slika">
+            </div>
+            <div class="col-md-8">
+                <h2>Bol u grudima</h2>
+                <p>Bol u grudima predstavlja jedan od simptoma koji najčešće izazivaju veliki strah kod pacijenata jer ih asociraju na infarkt. Međutim, taj strah je opravdan. Bol u grudima može da bude trivijalan, ali može da bude i životno ugrožavajući! Kada su ovakve situacije u pitanju, ranija i aktuelna istorija bolesti je od velikog značaja.
+
+                    Mnogi pacijenti se obično kasno jave lekaru jer smatraju da je zabrinjavajući samo bol u grudima koji je žestok i praćen opštom slabošću. Međutim, jačina bola u grudima često ne određuje težinu i ozbiljnost neke bolesti.
+                    
+                    Nekada i blag osećaj neprijatnosti u grudima, ili čak ne u grudima, već i u gornjem delu stomaka predstavlja moguć znak nekih bolesti kao što su nestabilna angina, akutni infarkt i druge.
+                    
+                    U ovakvim situacijama, razmatranje specifičnih srčanih faktora rizika mogu pomoći u postavljanju dijagnoze, dok rutinski testovi često mogu promašiti dijagnozu.</p>
+                <a href="https://limana.rs/bol-u-grudima/" class="btn btn-warning">Pročitaj više</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-post mb-4">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="https://limana.rs/wp-content/uploads/2019/03/bright-cardiac-cardiology-433267-1200x1078.jpg" class="img-fluid rounded" alt="Blog post slika">
+            </div>
+            <div class="col-md-8">
+                <h2>Kako radi tvoje srce?</h2>
+                <p>Srce ima tri glavne koronarne arterije. Dve od ovih arterija nastaju iz zajedničkog stabla, nazvanog glavno stablo koronarnih arterija. Koronarne arterije leže inicijalno na površini srca pre nego što urone u dubinu i dosegnu do ćelija srčanog mišića.
+                    <br><br>
+                    - Leva koronarna arterija ishranjuje levu stranu srca
+                    <br><br>
+                    - Njena leva prednja descedentna grana (LAD) ishranjuje prednju stranu srca
+                    <br><br>
+                    - Leva cirkumfleksna grana grana (RCX) ishranjuje levu lateralnu i zadnju stranu srca
+                    <br><br>
+                    - Konačno, desna koronarna arterija (RCA) je odvojena i ishranjuje desno srce i preostale delove srca</p>
+                <a href="https://limana.rs/kako-radi-tvoje-srce/" class="btn btn-warning">Pročitaj više</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="blog-post mb-4">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="https://limana.rs/wp-content/uploads/2019/03/bolest-mitralnog-zaliska.png" class="img-fluid rounded" alt="Blog post slika">
+            </div>
+            <div class="col-md-8">
+                <h2>Bolesti mitralnog i aortnog zaliska</h2>
+                <p>Pre nego što saznate kako prepoznati i tretirati bolesti mitralnog i aortalnog zaliska, najpre ćemo odgovoriti na pitanje – šta je mitralni zalistak? Mitralni zalistak nalazi se između leve pretkomore i leve komore. Ima dva listića i omogućava protok krvi iz pretkomore u komoru u fazi punjenja komora odnosno dijastole. U fazi sistole, tj. istiskivanja krvi iz leve komore u aortu, mitralni zalistak se zatvori tako da sva krv ide direktno u aortu, odnosno tkiva i organe. Na taj način mitralni zalistak funkcioniše kao jednosmerna valvula koja omogućava punjenje krvi iz leve pretkomore u levu komoru, a sprečava povratak krvi iz leve komore u levu pretkomoru u fazi sistole. Bolesti mitralnog i aortalnog zaliska.
+                    <br><br>
+                    <strong>Šta su simptomi bolesti mitralnog zaliska?</strong>
+                    Mnogi pacijenti sa prisutnom bolešću mitralnog zaliska nemaju tegobe, iako je insuficijencija značajna. Kada se simptomi razviju oni uključuju nedostatak vazduha, slabost, malaksalost, gubitak energije, oticanje potkolenica  i palpitacije.
+                    <br><br>
+                    <strong>Kako se mitralna insuficijencija dijagnostikuje?</strong>
+                    Prvi korak je slušanje stetoskopom. Upotrebom stetoskopa lekar će čuti šum, koji predstavlja turbulentan tok krvi kroz abnormalnu valvulu. Dijagnoza se potvrđuje ehokardigarfskim pregledom.</p>
+                <a href="https://limana.rs/bolest-mitralnog-zaliska/" class="btn btn-warning">Pročitaj više</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer class="footer mt-5">
+    <div class="container">
+        <div class="social-icons mb-3">
+            <a href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/?lang=sr" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="text-center">
+            © 2024 Kardiolog AI. Sva prava zadržana.
+        </div>
+    </div>
+</footer>
+<div class="scroll-to-top">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

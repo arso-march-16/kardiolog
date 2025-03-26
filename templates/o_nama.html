@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kardiolog AI</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 60px;
+        }
+        .navbar {
+            background-color: #343a40;
+            border-bottom: 4px solid #007bff;
+        }
+        .navbar-brand {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: #ffffff;
+        }
+        .footer a:hover {
+            color: #f8f9fa;
+        }
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #f8f9fa;
+        }
+        .animation-element {
+            animation-duration: 2s;
+            animation-fill-mode: both;
+        }
+        .fade-in {
+            animation-name: fadeIn;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .fadeIn p {
+            font-size: 19px;
+        }
+        #team .team-member {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        #team .team-member:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        #team .team-member h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        #team .team-member p {
+            font-size: 16px;
+            color: #666666;
+        }
+        #team .team-member .social-icons a {
+            font-size: 20px;
+            margin: 0 5px;
+            color: #343a40;
+            transition: color 0.3s ease;
+        }
+        #team .team-member .social-icons a:hover {
+            color: #007bff;
+        }
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="http://127.0.0.1:8000/">
+                <i class="fa-solid fa-heart-pulse"></i> Kardiolog AI            
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://127.0.0.1:8000/"><span class="animation-element fade-in" style="font-size: 20px;">Pocetna</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'preventiva' %}"><span class="animation-element fade-in" style="font-size: 20px;">Preventiva</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'blog' %}"><span class="animation-element fade-in" style="font-size: 20px;">Blog</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'kontakt' %}"><span class="animation-element fade-in" style="font-size: 20px;">Kontakt</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="mb-4 animation-element fade-in">O nama</h1>
+        <div class="row">
+            <div class="col-md-6 fadeIn">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded mb-4 animation-element fade-in" alt="O nama slika">
+            </div>
+            <div class="col-md-6 fadeIn">
+                <p class="animation-element fade-in">Mi smo tim studenata koji su radili na ovom projektu. Naš cilj je bio da stvorimo korisnu aplikaciju koja omogućava korisnicima da predvide rizik od srčanih problema na osnovu različitih zdravstvenih podataka kao što su starost, pol, krvni pritisak, nivo holesterola, itd.</p>
+                <p class="animation-element fade-in">Ovaj sajt može biti od koristi svima koji žele da saznaju više o svom srčanom zdravlju. Korisnici mogu uneti svoje zdravstvene podatke, a zatim dobiti procjenu rizika od srčanih problema na osnovu tih informacija.</p>
+                <p class="animation-element fade-in">Naš tim je uložio puno truda i vremena kako bi obezbijedio pouzdan algoritam za predviđanje srčanih problema. Nadamo se da će vam ovaj sajt biti od koristi i da ćete uživati koristeći ga.</p>
+            </div>
+        </div>
+    </div>
+
+    <section id="team" class="bg-light py-5">
+        <div class="container">
+            <h2 class="section-title animation-element fade-in">Naš tim</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member text-center animation-element fade-in">
+                        <img src="https://st3.depositphotos.com/9998432/19048/v/1600/depositphotos_190484900-stock-illustration-default-placeholder-businessman-half-length.jpg" class="img-fluid rounded-circle mb-3" alt="Team Member">
+                        <h3>Amar Ramović</h3>
+                        <p>Frontend Developer</p>
+                        <p>Amar je radio na razvoju korisničkog interfejsa i odgovoran je za implementaciju vizuelnog dizajna našeg projekta.</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/?lang=sr"><i class="fab fa-twitter"></i></a>
+                            <a href="https://me.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member text-center animation-element fade-in">
+                        <img src="https://st3.depositphotos.com/9998432/19048/v/1600/depositphotos_190484900-stock-illustration-default-placeholder-businessman-half-length.jpg" class="img-fluid rounded-circle mb-3" alt="Team Member">
+                        <h3>Arsenije Martinović</h3>
+                        <p>Data Scientist</p>
+                        <p>Arsenije je radio na analizi i obradi podataka, kao i razvoju algoritama za predviđanje rizika od srčanih problema koristeći mašinsko učenje.</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/?lang=sr"><i class="fab fa-twitter"></i></a>
+                            <a href="https://me.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member text-center animation-element fade-in">
+                        <img src="https://st3.depositphotos.com/9998432/19048/v/1600/depositphotos_190484900-stock-illustration-default-placeholder-businessman-half-length.jpg" class="img-fluid rounded-circle mb-3" alt="Team Member">
+                        <h3>Hamza Musić</h3>
+                        <p>Backend Developer</p>
+                        <p>Hamza je zadužen za razvoj serverske strane aplikacije koristeći Django, istovremeno je kontrolisao rad modela ML koji smo implementirali.</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/?lang=sr"><i class="fab fa-twitter"></i></a>
+                            <a href="https://me.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="team-member text-center animation-element fade-in">
+                        <img src="https://st3.depositphotos.com/9998432/19048/v/1600/depositphotos_190484900-stock-illustration-default-placeholder-businessman-half-length.jpg" class="img-fluid rounded-circle mb-3" alt="Team Member">
+                        <h3>Hamdija Feratović</h3>
+                        <p>QA tester</p>
+                        <p>Hamdija je dio tima koji je bio odgovoran za testiranje algoritma, same aplikacije i organizaciju timskih aktivnosti.</p>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/?lang=sr"><i class="fab fa-twitter"></i></a>
+                            <a href="https://me.linkedin.com/"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer mt-5">
+        <div class="container">
+            <div class="social-icons mb-3">
+                <a href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://x.com/?lang=sr" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="mb-0">© 2024 Kardiolog AI. Sva prava zadržana.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 60) {
+                $('.navbar').addClass('sticky');
+            } else {
+                $('.navbar').removeClass('sticky');
+            }
+        });
+
+        
+        $(document).ready(function() {
+            $(window).scroll(function() {
+                $('.animation-element.fade-in').each(function() {
+                    var position = $(this).offset().top;
+                    var topWindow = $(window).scrollTop();
+                    if (position < topWindow + 600) {
+                        $(this).addClass("fadeIn");
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

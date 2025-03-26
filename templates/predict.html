@@ -1,0 +1,764 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kardiolog Ai</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 60px;
+        }
+        .navbar {
+            background-color: #343a40;
+            border-bottom: 4px solid #007bff;
+        }
+        .navbar-brand {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: #ffffff;
+        }
+        .footer a:hover {
+            color: #f8f9fa;
+        }
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #f8f9fa;
+		}
+		.form-control {
+			width: calc(100% - 24px);
+			padding: 12px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			font-size: 16px;
+			box-sizing: border-box;
+		}
+
+		.form-control:focus {
+			outline: none;
+			border-color: #007bff;
+			box-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+		}
+
+		.form-group {
+			margin-bottom: 20px;
+		}
+
+		.form-title {
+			text-align: center;
+			margin-bottom: 30px;
+			font-size: 36px;
+			color: #007bff;
+		}
+
+		.btn-primary {
+			background-color: #007bff;
+			border: none;
+			color: white;
+			padding: 14px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: block; 
+			font-size: 16px;
+			width: 100%;
+			border-radius: 4px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+
+		.btn-primary:hover {
+			background-color: #0056b3;
+		}
+
+		.form-group label {
+			font-weight: bold;
+			display: block;
+			margin-bottom: 10px;
+			color: #555;
+		}
+
+		.form-group select {
+			width: calc(100% - 24px); 
+			padding: 7px;
+			margin-bottom: 20px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			font-size: 16px;
+			box-sizing: border-box;
+		}
+
+		.row {
+			margin-top: 20px;
+			text-align: center;
+		}
+
+		.row h2 {
+			font-style: italic;
+			color: #555;
+		}
+
+		@media (max-width: 600px) {
+			.container {
+				padding: 20px;
+				width: 100%;
+				border-radius: 0;
+			}
+		}
+		.result-container {
+			background-color: #ffffff;
+			border: 1px solid #e9ecef;
+			border-radius: 4px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			padding: 20px;
+			margin-top: 40px;
+		}
+
+		.result-title {
+			font-size: 24px;
+			color: #007bff;
+			margin-bottom: 10px;
+		}
+
+		.result-text {
+			font-size: 18px;
+			color: #555;
+			line-height: 1.6;
+		}
+
+		.result-actions {
+			margin-top: 20px;
+		}
+		.scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #555;
+        }
+
+        .scroll-to-top i {
+            font-size: 20px;
+        }
+		@keyframes typing {
+    		from { width: 0; }
+    		to { width: 100%; }
+		}
+
+		.alert-info {
+			margin-top: 20px;
+			font-size: 18px;
+			padding: 10px;
+			position: relative; 
+			overflow: hidden; 
+			white-space: nowrap; 
+			animation: typing 6s steps(80, end); 
+		}
+
+		.bmi-description{
+            display: flex;
+            flex-wrap: wrap;
+            background-color: #f0f4f8;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 20px auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-in-out;
+            max-width: 1200px;
+        }
+        .bmi-description .content{
+            flex: 1;
+            margin-right: 20px;
+        }
+        .bmi-description img{
+            flex: 1;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+		.custom-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .custom-btn:hover {
+            background-color: #9fc2f1;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+		.wait-text {
+    		color: rgb(20, 0, 245);
+    		font-size: 14px;
+    		margin-top: 10px;
+		}
+
+		.modal {
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+
+		.modal-dialog {
+			max-width: 600px; 
+			margin: 1.75rem auto; 
+		}
+
+		.modal-content {
+			border-radius: 0.5rem; 
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+		}
+
+		.modal-header {
+			background-color: #f8f9fa; 
+			border-bottom: 1px solid #dee2e6; 
+			padding: 1.25rem 1.5rem; 
+		}
+
+		.modal-title {
+			display: flex;
+			align-items: center;
+			color: #343a40; 
+			font-size: 1.25rem; 
+			font-weight: 600; 
+		}
+
+		.modal-title i {
+			margin-right: 0.75rem; 
+			color: #dc3545; 
+		}
+
+		.modal-title span {
+			margin-right: 0.5rem; 
+			font-size: 1.125rem; 
+			color: #007bff; 
+		}
+
+		.modal-body {
+			padding: 1.5rem; 
+			background-color: #ffffff; 
+		}
+
+		.modal-body .result-text {
+			font-size: 1.1rem;  
+			font-weight: bold;   
+			color: #343a40;     
+			line-height: 1.5;    
+			margin-bottom: 1rem; 
+		}
+
+		.modal-footer {
+			background-color: #f8f9fa; 
+			border-top: 1px solid #dee2e6; 
+			padding: 1rem 1.5rem; 
+		}
+
+		.modal-footer .btn {
+			border-radius: 0.25rem; 
+			padding: 0.5rem 1rem; 
+		}
+
+		.modal-footer .btn-danger {
+			background-color: #dc3545; 
+			color: #ffffff; 
+			border: none; 
+			font-weight: 600; 
+		}
+
+		.modal-footer .btn-info {
+			background-color: #007bff; 
+			color: #ffffff; 
+			border: none; 
+			font-weight: 600; 
+		}
+
+		.modal-footer .btn:hover {
+			opacity: 0.9;
+		}
+
+		.modal-footer .btn-danger:hover {
+			background-color: #c82333;
+		}
+
+		.modal-footer .btn-info:hover {
+			background-color: #0056b3; 
+		}
+
+		.toast-container {
+    		position: fixed;
+    		top: 10px;
+    		right: 10px;
+    		z-index: 10000;
+		}
+
+		.toast {
+			display: flex;
+			flex-direction: column;
+			align-items: center; 
+			background-color: #d1e3ff; 
+			color: #1d1d1d; 
+			border: 1px solid #b3d1ff; 
+			padding: 20px;
+			margin-bottom: 10px;
+			border-radius: 12px; 
+			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); 
+			animation: fadeInOut 5s forwards;
+			font-weight: bold;
+			font-size: 1em; 
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+			text-align: center;
+		}
+
+		.toast-header {
+			display: flex;
+			align-items: center;
+			margin-bottom: 15px;
+			background-color: #d1e3ff;
+		}
+
+		.toast i {
+			color: #da2121; 
+			margin-right: 12px; 
+			font-size: 1.4em; 
+		}
+
+		.toast span {
+			color: #da2121; 
+			font-weight: bold;
+			font-size: 1.1em; 
+		}
+
+		.toast p {
+			margin: 0;
+			padding: 0 10px; 
+			font-size: 0.95em; 
+			color: #1d1d1d; 
+		}
+
+		@keyframes fadeInOut {
+			0% {
+				opacity: 0;
+				transform: translateX(100%); 
+			}
+			10% {
+				opacity: 1;
+				transform: translateX(0); 
+			}
+			90% {
+				opacity: 1;
+				transform: translateX(0); 
+			}
+			100% {
+				opacity: 0;
+				transform: translateX(100%);
+			}
+		}
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <div class="container">
+		<a class="navbar-brand" href="http://127.0.0.1:8000/">
+            <i class="fa-solid fa-heart-pulse"></i> Kardiolog AI            
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/"><span class="animation-element fade-in" style="font-size: 20px;">Početna</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'o_nama' %}"><span class="animation-element fade-in" style="font-size: 20px;">O nama</span></a>
+                </li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'preventiva' %}"><span class="animation-element fade-in" style="font-size: 20px;">Preventiva</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'blog' %}"><span class="animation-element fade-in" style="font-size: 20px;">Blog</span></a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="{% url 'kontakt' %}"><span class="animation-element fade-in" style="font-size: 20px;">Kontakt</span></a>
+				</li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br><br>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script>
+    //cekanje da se stranica učita
+    $(document).ready(function() {
+        //logika za prikazivanje modala kada se rezultat pojavi
+        var result = "{{ result2 }}"; //dobijanje rezultata iz šablona
+
+        //provjera da li postoji rezultat
+        if (result !== "") {
+            //prikaži modal
+            $('.modal').modal('show');
+        }
+    });
+</script>
+
+
+<div class="modal" tabindex="-1">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title">
+				<i class="fa-solid fa-heart-pulse"></i> 
+				<span>Kardiolog AI:</span>
+				Rezultat procjene
+			</h5>
+		  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
+		</div>
+		<div class="modal-body">
+			<p class="result-text">{{ result2 }}</p>
+		</div>
+		<div class="modal-footer">
+		  <a class="btn btn-danger" href="http://127.0.0.1:8000/">Zatvori</button>
+		  <a class="btn btn-info" href="{% url 'preventiva' %}">Reaguj preventivno..</a>
+		</div>
+	  </div>
+	</div>
+  </div>
+
+  <script>
+	document.getElementById('close-modal').addEventListener('click', function () {
+		window.location.href = "http://127.0.0.1:8000/predict/";
+	});
+</script>
+
+<br>
+<div class="container">
+	<h1 class="form-title">Unesite svoje podatke</h1>
+
+	<div class="alert alert-info" role="alert">
+        Rezultati ove procjene će ostati anonimni i neće biti dijeljeni s trećim stranama. Samo Vi ćete imati uvid u svoje zdravstveno stanje.
+    </div>
+
+	<form action="result">
+		<div class="form-group">
+			<label for="n0">Unesite Vaš BMI: <a href="#bmi-section" style="font-size: 14px;">(Izračunaj vrijednost BMI-a)</a></label>
+			<input type="text" id="n0" name="n0" class="form-control">
+		</div>
+		<div class="form-group">
+			<label for="n1">Da li konzumirate duvanske proizvode:</label>
+			<select id="n1" name="n1" class="form-control">
+				<option value="No">Ne</option>
+				<option value="Yes">Da</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="n2">Da li konzumirate alkohol:</label>
+			<select id="n2" name="n2" class="form-control">
+				<option value="No">Ne</option>
+				<option value="Yes">Da</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="n3">Da li ste ikada imali moždani udar:</label>
+			<select id="n3" name="n3" class="form-control">
+				<option value="No">Ne</option>
+				<option value="Yes">Da</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="n3_1">U posljednjih 30 dana, koliko dana ste bili lošeg fizičkog zdravlja:</label>
+			<input type="text" id="n3_1" name="n3_1" class="form-control" placeholder="Unesite vrijednost od 0 do 30">
+		</div>
+		<div class="form-group">
+			<label for="n3_2">U posljednjih 30 dana, koliko dana ste bili lošeg mentalnog zdravlja:</label>
+			<input type="text" id="n3_2" name="n3_2" class="form-control" placeholder="Unesite vrijednost od 0 do 30">
+		</div>
+		<div class="form-group">
+			<label for="n4">Da li imate poteškoća u hodanju:</label>
+			<select id="n4" name="n4" class="form-control">
+				<option value="No">Ne</option>
+				<option value="Yes">Da</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="n5">Vaš pol:</label>
+			<select id="n5" name="n5" class="form-control">
+				<option value="Male">Muški</option>
+				<option value="Female">Ženski</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="n6">Vaše godine:</label>
+			<select id="n6" name="n6" class="form-control">
+				<option value="">Izaberite</option>
+				<option value="18-24">18-24</option>
+				<option value="25-29">25-29</option>
+				<option value="30-34">30-34</option>
+				<option value="35-39">35-39</option>
+				<option value="40-44">40-44</option>
+				<option value="45-49">45-49</option>
+				<option value="50-54">50-54</option>
+				<option value="55-59">55-59</option>
+				<option value="60-64">60-64</option>
+				<option value="65-69">65-69</option>
+				<option value="70-74">70-74</option>
+				<option value="75-79">75-79</option>
+				<option value="80 or older">80 ili više</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="n7">Vaša rasa:</label>
+			<select id="n7" name="n7" class="form-control">
+				<option value="">Izaberite</option>
+				<option value="White">Bela</option>
+				<option value="Black">Crna</option>
+				<option value="Asian">Azijska</option>
+				<option value="American Indian/Alaskan Native">Američki Indijanac/Aljaski domorodac</option>
+				<option value="Other">Druga</option>
+				<option value="Hispanic">Hispanoamerička</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="n8">Da li imate dijagnostikovan dijabetes:</label>
+			<select id="n8" name="n8" class="form-control">
+				<option value="">Izaberite</option>
+				<option value="Yes">Da</option>
+				<option value="No">Ne</option>
+				<option value="No, borderline diabetes">Ne, granični dijabetes</option>
+				<option value="Yes (during pregnancy)">Da (tokom trudnoće)</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="n9">Da li ste fizički aktivni:</label>
+			<select id="n9" name="n9" class="form-control">
+				<option value="No">Ne</option>
+				<option value="Yes">Da</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="n10">Vaša ocjena sopstvenog zdravlja:</label>
+			<select id="n10" name="n10" class="form-control">
+				<option value="">Izaberite</option>
+				<option value="Excellent">Izvrsno</option>
+				<option value="Very good">Veoma dobro</option>
+				<option value="Good">Dobro</option>
+				<option value="Fair">Prilično dobro</option>
+				<option value="Poor">Loše</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="n11">Koliko sati dnevno spavate:</label>
+			<input type="text" id="n11" name="n11" class="form-control" placeholder="Unesite vrijednost od 1 do 24">
+		</div>
+		<div class="form-group">
+			<label for="n12">Da li imate dijagnostikovanu astmu:</label>
+			<select id="n12" name="n12" class="form-control">
+				<option value="No">Ne</option>
+				<option value="Yes">Da</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="n13">Da li imate dijagnostikovanu bolest bubrega:</label>
+			<select id="n13" name="n13" class="form-control">
+				<option value="No">Ne</option>
+				<option value="Yes">Da</option>
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="n14">Da li ste ikada imali dijagnozu raka kože?</label>
+			<select id="n14" name="n14" class="form-control">
+				<option value="No">Ne</option>
+				<option value="Yes">Da</option>
+			</select>
+		</div>
+		<button type="submit" class="btn-primary">POŠALJI</button>
+	</form>
+	<p class="wait-text">Molimo vas, sačekajte nekoliko sekundi da se prikaže rezultat procjene nakon što popunite i pošaljete formu klikom na dugme <strong>"POŠALJI"</strong>.</p>
+</div>
+<script>
+document.querySelector("form").addEventListener("submit", function(event) {
+    let valid = true;
+    const errorMessages = [];
+
+    //validacija za BMI
+    const bmi = document.getElementById("n0").value.trim();
+    if (bmi === "" || isNaN(bmi) || !parseFloat(bmi)) {
+        errorMessages.push("Molimo unesite validnu BMI vrijednost.");
+        valid = false;
+    }
+
+    //validacija za dropdowns polja
+    const dropdowns = {
+        "n1": "Da li konzumirate duvanske proizvode",
+        "n2": "Da li konzumirate alkohol",
+        "n3": "Da li ste ikada imali moždani udar",
+        "n4": "Da li imate poteškoća u hodanju",
+        "n5": "Vaš pol",
+        "n6": "Vaše godine",
+        "n7": "Vaša rasa",
+        "n8": "Da li imate dijagnostikovan dijabetes",
+        "n9": "Da li ste fizički aktivni",
+        "n10": "Vaša ocjena sopstvenog zdravlja",
+        "n12": "Da li imate dijagnostikovanu astmu",
+        "n13": "Da li imate dijagnostikovanu bolest bubrega",
+        "n14": "Da li ste ikada imali dijagnozu raka kože"
+    };
+
+    for (let id in dropdowns) {
+        const value = document.getElementById(id).value.trim();
+        if (value === "") {
+            errorMessages.push(`Molimo odaberite vrijednost za: ${dropdowns[id]}.`);
+            valid = false;
+        }
+    }
+
+    const physicalHealthDays = document.getElementById("n3_1").value.trim();
+    if (physicalHealthDays === "" || isNaN(physicalHealthDays) || parseInt(physicalHealthDays) < 0 || parseInt(physicalHealthDays) > 30) {
+        errorMessages.push("Molimo unesite validnu vrijednost od 0 do 30, za dane lošeg fizičkog zdravlja.");
+        valid = false;
+    }
+
+    const mentalHealthDays = document.getElementById("n3_2").value.trim();
+    if (mentalHealthDays === "" || isNaN(mentalHealthDays) || parseInt(mentalHealthDays) < 0 || parseInt(mentalHealthDays) > 30) {
+        errorMessages.push("Molimo unesite validnu vrijednost od 0 do 30, za dane lošeg mentalnog zdravlja.");
+        valid = false;
+    }
+
+    const sleepHours = document.getElementById("n11").value.trim();
+    if (sleepHours === "" || isNaN(sleepHours) || parseInt(sleepHours) < 1 || parseInt(sleepHours) > 24) {
+        errorMessages.push("Molimo unesite validnu vrijednost od 1 do 24, za sate spavanja.");
+        valid = false;
+    }
+
+    if (!valid) {
+        event.preventDefault();
+        displayToasts(errorMessages);
+    }
+});
+
+function displayToasts(messages) {
+    const toastContainer = document.createElement("div");
+    toastContainer.className = "toast-container";
+
+    messages.forEach(message => {
+        const toast = document.createElement("div");
+        toast.className = "toast";
+        toast.innerHTML = `
+            <div class="toast-header">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span>Kardiolog AI: Upozorenje!</span>
+            </div>
+            <p>${message}</p>`;
+        toastContainer.appendChild(toast);
+    });
+
+    document.body.appendChild(toastContainer);
+
+    setTimeout(() => {
+        toastContainer.remove();
+    }, 5000);
+}
+
+</script>	
+	
+
+<div id="bmi-section" class="container mt-5">
+    <div class="bmi-description">
+        <div class="content">
+            <h1>Šta je BMI?</h1>
+            <p>Indeks telesne mase ili na engleskom Body Mass Index (BMI) je metoda računanja uhranjenosti. BMI se izračunava vrlo jednostavno, a temelji se na odnosu telesne težine i visine osobe.</p>
+            <p>Što je indeks više izvan okvira normalnih vrednosti, to je veći rizik od obolevanja od raznih srčanih bolesti, dijabetesa i povišenog krvnog pritiska.</p>
+            <p>Formula za izračunavanje indeksa telesne mase izgleda ovako:</p>
+            <p><strong>Težina (kg) : Visina² (m) = BMI</strong></p>
+            <p>Broj kilograma delite sa visinom u metrima na kvadrat.</p>
+            <p>Primer za osobu koja ima 58kg i visoka je 1,65m:</p>
+            <p>58 : (1,65 x 1,65) = 58 : 2,72 = 21,32</p>
+            <a href="https://www.calculator.net/bmi-calculator.html" target="_blank" class="custom-btn">Izračunajte svoj BMI</a>
+        </div>
+        <img src="https://austingynecomastiacenter.com/assets/img/blog/BMI-Chart-Detailed.png" alt="Ilustracija BMI" height="600px" width="400px">
+    </div>
+</div>
+
+
+<footer class="footer mt-5">
+    <div class="container">
+        <div class="social-icons mb-3">
+            <a href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/?lang=sr" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+        <div class="text-center">
+            © 2024 Kardiolog AI. Sva prava zadržana.
+        </div>
+    </div>
+</footer>
+<div class="scroll-to-top">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<div id="toast-container" class="toast-container"></div>
+</body>
+</html>

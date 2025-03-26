@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kardiolog Ai</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 60px;
+        }
+        .navbar {
+            background-color: #343a40;
+            border-bottom: 4px solid #007bff;
+        }
+        .navbar-brand {
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 24px;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: #ffffff;
+        }
+        .footer a:hover {
+            color: #f8f9fa;
+        }
+        .social-icons a {
+            color: #ffffff;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+        .social-icons a:hover {
+            color: #f8f9fa;
+        }
+        .thank-you-section {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
+
+        .thank-you-section h1,
+        .thank-you-section p {
+            color: #343a40;
+        }
+
+        .thank-you-section .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .thank-you-section .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .thank-you-section img {
+            border: 5px solid #007bff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-section {
+            text-align: center;
+            padding: 30px 0;
+        }
+
+        .result-section h2 {
+            font-size: 32px;
+            color: #343a40;
+        }
+
+        .result-value {
+            font-size: 24px;
+            color: #007bff;
+            margin-top: 20px;
+        }
+
+        .new-section {
+            padding: 100px 0;
+            background-color: #007bff;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .new-section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        .useful-links {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .useful-links {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+
+        .useful-links .container {
+            text-align: left;
+        }
+
+        .useful-links h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .useful-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .useful-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .useful-links ul li a {
+            color: #007bff;
+            font-size: 17px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .useful-links ul li a:hover {
+            color: #0056b3;
+            border-color: #0056b3;
+        }
+        
+        .info-section {
+            background-color: #f0f4f8;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        
+        .section-header h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: #666666;
+        }
+
+       
+        .info-section {
+            background-color: #f0f4f8;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        
+        .section-header h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: #666666;
+        }
+
+        .info-section {
+            background-color: #caecf0; 
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .info-section::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: linear-gradient(135deg, rgba(194, 225, 227, 0.8) 0%, rgba(224, 224, 224, 0.8) 100%);
+            border-radius: 10px;
+            z-index: -1;
+            filter: blur(15px); 
+        }
+
+        .info-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+        .info-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .info-section p {
+            font-size: 18px;
+            color: #666666;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        
+        .info-block {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%; 
+        }
+
+        .info-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        
+        .info-icon img {
+            width: 200px; 
+            height: 200px; 
+            object-fit: cover; 
+            border-radius: 50%; 
+            border: 3px solid #ffffff; 
+            transition: border-color 0.3s ease;
+        }
+
+        .info-icon img:hover {
+            border-color: #333333; 
+        }
+
+        
+        .info-content h3 {
+            font-size: 22px;
+            color: #333333;
+            margin-top: 15px;
+        }
+
+        
+        .info-content .btn-primary {
+            background-color: #17a2b8; 
+            color: #ffffff; 
+            border: none; 
+            border-radius: 30px; 
+            padding: 12px 24px; 
+            display: block;
+            margin-top: 15px;
+            text-decoration: none; 
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-size: 14px; 
+        }
+
+        .info-content .btn-primary:hover {
+            background-color: #138496; 
+            color: #ffffff; 
+        }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .scroll-to-top:hover {
+            background-color: #555;
+        }
+
+        .scroll-to-top i {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="http://127.0.0.1:8000/">
+            <i class="fa-solid fa-heart-pulse"></i> Kardiolog AI            
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://127.0.0.1:8000/"><span class="animation-element fade-in" style="font-size: 20px;">Pocetna</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'o_nama' %}"><span class="animation-element fade-in" style="font-size: 20px;">O nama</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'blog' %}"><span class="animation-element fade-in" style="font-size: 20px;">Blog</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'kontakt' %}"><span class="animation-element fade-in" style="font-size: 20px;">Kontakt</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="thank-you-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+                </style>
+                <h1 class="display-4" style="font-family: 'Lobster', cursive;font-size: 46px;">Hvala Vam što koristite našu aplikaciju!</h1> <br>
+                <p class="lead">Prilikom realizacije ove aplikacije koristili smo <strong>Logističku regresiju</strong> algoritam koji nam je omogućio precizno predviđanje rizika od srčanih problema na osnovu dostavljenih podataka. Za više informacija o <strong>Logističkoj regresiji</strong> pritisnite dugme "Saznaj više".</p>
+                <a href="https://www.spiceworks.com/tech/artificial-intelligence/articles/what-is-logistic-regression/" class="btn btn-info btn-lg">Saznajte više</a>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center">
+                <img src="https://t4.ftcdn.net/jpg/05/33/33/35/360_F_533333591_z3CPyLiiFqMoHv6nLj137Byph2l4gFuU.jpg" alt="Your Image" class="img-fluid rounded" style="max-width: 600px;">
+            </div>
+        </div>
+    </div>
+</section>
+<br>
+<section class="info-section">
+    <div class="container">
+        <div class="section-header text-center mb-5">
+            <h2>Preventivno djelujte za svoje zdravlje</h2>
+            <p>Kao odgovorna osoba, važno je da vodite računa o svom zdravlju i blagovremeno reagujete. Ovdje vam nudimo nekoliko korisnih informacija i prijedloga kako da preventivno djelujete.</p>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="info-block">
+                    <div class="info-icon">
+                        <img src="https://mojlab.me/wp-content/uploads/2023/01/Zarko-Calovic-slika.jpg" alt="Doktor" width="200" height="200">
+                    </div>
+                    <div class="info-content">
+                        <h3>DOKTOR</h3>
+                        <a href="https://mojlab.me/doktori/zarko-calovic/" class="btn btn-primary">Zdravlje i savjeti dr Ćalović Žarko</a>
+                        <a href="https://www.belmedic.rs/tim/sanvila-stankov-dr" class="btn btn-primary">Zdravlje i savjeti dr Stankov Sanvila</a>
+                        <a href="https://www.belmedic.rs/tim/vojkan-cvorovic-mr-sci-med" class="btn btn-primary">Zdravlje i savjeti dr Čvorović Vojkan</a>
+                        <a href="https://aurorabolnica.rs/eksperti/snezana-capric" class="btn btn-primary">Zdravlje i savjeti dr Čaprić Snežana</a>
+                        <a href="https://kardiomedika.com/osoblje/miodrag-damjanovic/" class="btn btn-primary">Zdravlje i savjeti dr Damjanović Miodrag</a>
+                        <a href="https://kardiomedika.com/osoblje/ivan-tasic/" class="btn btn-primary">Zdravlje i savjeti dr Tasić Ivan</a>
+                        <a href="https://kardiomedika.com/osoblje/ruzica-jankovic-tomasevic/" class="btn btn-primary">Zdravlje i savjeti dr Tomašević Ružica</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="info-block">
+                    <div class="info-icon">
+                        <img src="https://www.internetapoteka.rs/sites/default/files/styles/product/public/images/products/andol300.jpg?itok=CqHlvLv_" alt="Lekovi" width="200" height="200">
+                    </div>
+                    <div class="info-content">
+                        <h3>LEKOVI</h3>
+                        <a href="https://www.apollopharmacy.in/medicine/andol-5mg-tablet-10-s" class="btn btn-primary">Andol 5mg </a>
+                        <a href="https://www.onlineapoteka.me/proizvod/esi-cardio-plus-60-kapsula/" class="btn btn-primary">ESI Cardio Plus</a>
+                        <a href="https://www.healthwarehouse.com/digoxin-0-25mg-tablets.html" class="btn btn-primary">Digoxin 0.25mg</a>
+                        <a href="https://e-surgery.com/product/lisinopril/" class="btn btn-primary">Lisinopril</a>
+                        <a href="https://e-surgery.com/product/ramipril/" class="btn btn-primary">Ramipril Capsules</a>
+                        <a href="https://www.healthwarehouse.com/moexipril-7-5mg-tablets.html" class="btn btn-primary">Moexipril 7.5mg</a>
+                        <a href="https://www.ebay.com/itm/296477054928?mkcid=16&mkevt=1&mkrid=711-127632-2357-0&ssspo=V0gIZzCtRO6&sssrc=4429486&ssuid=&var=594418038763&widget_ver=artemis&media=COPY" class="btn btn-primary">Aspirn 75mg</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="info-block">
+                    <div class="info-icon">
+                        <img src="https://kitchentv.rs/wp-content/uploads/2023/02/DSC04270-1300x732.jpg" alt="Recepti" width="200" height="200">
+                    </div>
+                    <div class="info-content">
+                        <h3>RECEPTI</h3>
+                        <a href="https://kitchentv.rs/recepti/losos-sa-kinoom-i-povrcem/" class="btn btn-primary">Losos sa kinoom i povrćem</a>
+                        <a href="https://bonapeti.rs/recepti/r-149273-Supa_od_so%C4%8Diva_i_tikvica" class="btn btn-primary">Supa od sočiva i tikvica</a>
+                        <a href="https://mondo.rs/Magazin/Kuhinja/a1178953/Pileca-salata-sa-avokadom-recept.html" class="btn btn-primary">Pileća salata sa avokadom</a>
+                        <a href="https://www.allrecipes.com/recipe/244174/berry-baked-oatmeal/" class="btn btn-primary"> Pečene ovsene pahuljice od bobica</a>
+                        <a href="https://www.allrecipes.com/recipe/272787/avocado-tuna-salad/" class="btn btn-primary"> Salata od tune i avokada</a>
+                        <a href="https://www.allrecipes.com/recipe/143407/grilled-salmon-fillets-with-a-lemon-tarragon-and-garlic-sauce/" class="btn btn-primary">Fileti lososa na žaru sa sosom od limuna</a>
+                        <a href="https://www.allrecipes.com/recipe/95046/italian-vegetable-soup-with-beans-spinach-pesto/" class="btn btn-primary"> Italijanska supa od povrća</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<br><br>
+<section class="useful-links">
+    <div class="container">
+        <h2 style="font-size: 27px;">Korisni linkovi:</h2>
+        <ul>
+            <li><a href="https://www.ibm.com/topics/machine-learning">Šta je Mašinsko Učenje?</a></li>
+            <li><a href="https://www.simplilearn.com/tutorials/machine-learning-tutorial/what-is-machine-learning">Kako radi Mašinsko Učenje?</a></li>
+            <li><a href="https://www.simplilearn.com/tutorials/machine-learning-tutorial/machine-learning-steps">Kako koristiti Mašinsko Učenje u praksi?</a></li>
+            <li><a href="https://www.analyticsvidhya.com/blog/2015/12/improve-machine-learning-results/">Kako poboljšati preciznost modela Mašinskog Učenja?</a></li>
+            <li><a href="https://www.sas.com/en_gb/insights/articles/analytics/machine-learning-algorithms.html">Koje su vrste algoritama u Mašinskom Učenju?</a></li>
+            <li><a href="https://www.linkedin.com/pulse/simple-guide-choosing-right-machine-learning-success-gangadhar">Kako odabrati odgovarajući algoritam Mašinskog Učenja za svoj projekat?</a></li>
+        </ul>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2024 Kardiolog AI</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/?lang=sr" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</footer>
+
+<div class="scroll-to-top">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var scrollToTopBtn = document.querySelector('.scroll-to-top');
+
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
