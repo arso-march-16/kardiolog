@@ -1,4 +1,4 @@
-U ovom projektu se nalaze video snimci, sljedeće sadržaje:
+U ovom projektu se nalaze video snimci, sljedeće sadržine:
 
 	Video "ima_oboljenje.mp4" prikazuje kako, na osnovu unosa od strane korisnika u odgovarajuća polja, algoritam Logističke Regresije obrađuje njegov unos i daje potom modal (Bootstrap) poruku gdje kaže da postoje indikacije za potencijalno srčano oboljenje. Potom se korisniku pruža mogućnost da pođe na stranicu gdje bi mogao zakazati pregled kod doktora, kupiti ljekove, kao i da spremi nešto zdravo za jelo, od naših zdravih recepata pogodnih za kardiovaskularno zdravlje, nakon klika na dugme "Reaguj preventivno"
 
